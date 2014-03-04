@@ -1,0 +1,23 @@
+body {
+	background-image:url('/images/mountain_filtered.jpg');	
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+h1, h3 {
+	-webkit-font-smoothing: antialiased;
+	font-family: "Mercury Text G4 A","Mercury Text G4 B",serif;
+	ext-rendering: optimizeLegibility;
+	color: #fff;
+}
+
+.btn-default{
+	/* color: #fff!important; */
+	background-color: #333!important;
+	border: 0;
+	text-shadow: 0 1px 2px rgba(0,0,0,.2);
+	margin-left: auto;
+	margin-right: auto;
+}
