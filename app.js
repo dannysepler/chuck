@@ -29,14 +29,14 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+// app.get('/', routes.index);
 app.get('/users', user.list);
 
 app.get('/home1', function(req,res) {
 	res.render('home1.jade');
 });
 
-app.get('/home2', function(req,res) {
+app.get('/', function(req,res) {
 	res.render('from_boot.jade');
 });
 
