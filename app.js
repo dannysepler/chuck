@@ -37,7 +37,7 @@ app.get('/home1', function(req,res) {
 });
 
 app.get('/', function(req,res) {
-	res.render('from_boot.jade');
+	res.render('home.jade');
 });
 
 http.createServer(app).listen(app.get('port'), function(){
