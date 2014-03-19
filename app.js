@@ -40,7 +40,7 @@ app.get('/', function(req,res) { res.render('home.jade'); });
 /*  ~~~~~~~~~~~~~
 	 ACTUAL PAGE 
 	~~~~~~~~~~~~~~	*/
-//home
+// home
 app.get('/dev/', function(req,res) { 
 	res.render('full/home.jade'); 
 });
@@ -51,7 +51,21 @@ app.get('/dev/album1', function(req,res) {
 });
 
 app.get('/dev/album2', function(req,res) {
-	res.render('full/albums/2.jade');
+	res.render('full/albums/1.jade');
+});
+
+app.get('/dev/album3', function(req,res) {
+	res.render('full/albums/1.jade');
+});
+
+// for sale
+app.get('/dev/forsale', function(req,res) {
+	res.render('full/home.jade');
+});
+
+// contact
+app.get('/dev/contact', function(req,res) {
+	res.render('full/home.jade');
 });
 
 http.createServer(app).listen(app.get('port'), function(){

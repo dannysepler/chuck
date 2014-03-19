@@ -7,46 +7,56 @@
 doctype html
 html
 	head
+		// title
 		block title
 
+		// stylesheets
 		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
 		link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.min.css')
 		link(rel='stylesheet', href='/stylesheets/full/layout.css')
-
 		block stylesheets
+		
+		// tab icon
 		link(rel="shortcut icon" href="/images/camera.ico")
 
+		// fonts
+		link(href="//fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet" type="text/css")
+		link(href="//fonts.googleapis.com/css?family=Annie+Use Your Telescope:400" rel="stylesheet" type="text/css")
+
+		// javascripts
 		script(src="http://code.jquery.com/jquery-2.1.0.min.js")
 		script(src="/javascripts/bootstrap.min.js")
 		script(src='/javascripts/full/layout.js')
 		block scripts
 		
 	body
-		block header
-			h1 Chuck Edelstein Photography
+		.container
+			block header
+				.bannerclick(href='/dev/')
+					h1#banner Chuck Edelstein Photography
 
-		block sidebar
-			.sidebar
-				.item
-					#home 
-						a(href="/dev/") home
-				.item
-					#albums 
-						a albums
-					#albumnames
-						#album1
-							a album 1
-						#album2 
-							a album 2
-						#album3
-							a album 3
-				.item
-					#forsale 
-						a for sale
-				.item
-					#contact 
-						a contact
+			block sidebar
+				.sidebar
+					.item
+						#home 
+							a(href="/dev/") home
+					.item
+						#albums 
+							a albums
+						#albumnames
+							#album1.album
+								a(href='/dev/album1') album 1
+							#album2.album
+								a(href='/dev/album2') album 2
+							#album3.album
+								a(href='/dev/album3') album 3
+					.item
+						#forsale
+							a(href='/dev/forsale') for sale
+					.item
+						#contact
+							a(href='/dev/contact') contact
 
-		block content
+			block content
 
-		block footer
+			block footer

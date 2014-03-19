@@ -1,7 +1,35 @@
+.container {
+	font-family: "Annie Use Your Telescope";
+}
+
+#banner {
+	font-family: "Amatic SC";
+	max-width: 50%;
+	font-size: 50px;
+	cursor: pointer;
+}
+
+.sidebar {
+	margin-top: 30px;
+}
+
+a {
+	color: #006600;
+	font-size: 20px;
+}
+
+.item {
+	margin-top: 10px;
+}
+
+.album { margin-top: 10px; }
+
 #albumnames {
 	display: none;
+	padding-left: 1em;
 }
 
 #albums a {
+	margin-top: 1em;
 	cursor: pointer;
 }
