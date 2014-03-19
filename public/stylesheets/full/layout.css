@@ -1,0 +1,7 @@
+#albumnames {
+	display: none;
+}
+
+#albums a {
+	cursor: pointer;
+}

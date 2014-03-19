@@ -1,0 +1,52 @@
+//
+// CHUCK EDELSTEIN photography website
+//
+// full site layout
+//
+
+doctype html
+html
+	head
+		block title
+
+		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+		link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.min.css')
+		link(rel='stylesheet', href='/stylesheets/full/layout.css')
+
+		block stylesheets
+		link(rel="shortcut icon" href="/images/camera.ico")
+
+		script(src="http://code.jquery.com/jquery-2.1.0.min.js")
+		script(src="/javascripts/bootstrap.min.js")
+		script(src='/javascripts/full/layout.js')
+		block scripts
+		
+	body
+		block header
+			h1 Chuck Edelstein Photography
+
+		block sidebar
+			.sidebar
+				.item
+					#home 
+						a(href="/dev/") home
+				.item
+					#albums 
+						a albums
+					#albumnames
+						#album1
+							a album 1
+						#album2 
+							a album 2
+						#album3
+							a album 3
+				.item
+					#forsale 
+						a for sale
+				.item
+					#contact 
+						a contact
+
+		block content
+
+		block footer

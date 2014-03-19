@@ -32,12 +32,26 @@ if ('development' == app.get('env')) {
 // app.get('/', routes.index);
 app.get('/users', user.list);
 
-app.get('/home1', function(req,res) {
-	res.render('home1.jade');
+/*  ~~~~~~~~~~~~~~~~
+	 TEMPORARY PAGE 
+	~~~~~~~~~~~~~~~~~	*/
+app.get('/', function(req,res) { res.render('home.jade'); });
+
+/*  ~~~~~~~~~~~~~
+	 ACTUAL PAGE 
+	~~~~~~~~~~~~~~	*/
+//home
+app.get('/dev/', function(req,res) { 
+	res.render('full/home.jade'); 
 });
 
-app.get('/', function(req,res) {
-	res.render('home.jade');
+// albums
+app.get('/dev/album1', function(req,res) {
+	res.render('full/albums/1.jade');
+});
+
+app.get('/dev/album2', function(req,res) {
+	res.render('full/albums/2.jade');
 });
 
 http.createServer(app).listen(app.get('port'), function(){
