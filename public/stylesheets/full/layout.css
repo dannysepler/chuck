@@ -18,6 +18,14 @@ a {
 	font-size: 20px;
 }
 
+a:hover {
+	color: #B20059;
+	
+
+	/* same color */
+	/* color: #006600; */
+}
+
 .item {
 	margin-top: 10px;
 }
