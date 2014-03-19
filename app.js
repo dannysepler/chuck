@@ -41,7 +41,10 @@ app.get('/', function(req,res) { res.render('home.jade'); });
 	 ACTUAL PAGE 
 	~~~~~~~~~~~~~~	*/
 // home
-app.get('/dev/', function(req,res) { 
+app.get('/dev/', function(req, res) { res.redirect('/dev/home'); });
+app.get('/dev',  function(req, res) { res.redirect('/dev/home'); })
+
+app.get('/dev/home', function(req,res) { 
 	res.render('full/home.jade'); 
 });
 

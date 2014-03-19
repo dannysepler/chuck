@@ -31,35 +31,36 @@ html
 		
 	body
 		.container
-			block header
-				.bannerclick(href='/dev/')
-					h1#banner Chuck Edelstein Photography
+			.row
+				block header
+					.bannerclick(href='/dev/')
+						h1#banner Chuck Edelstein Photography
 
-			block sidebar
-				.sidebar
-					.item
-						#home 
-							a(href="/dev/") home
-					.item
-						#albums 
-							a albums
-						#albumnames
-							#album1.album
-								a(href='/dev/album1') album 1
-							#album2.album
-								a(href='/dev/album2') album 2
-							#album3.album
-								a(href='/dev/album3') album 3
-					.item
-						#forsale
-							a(href='/dev/forsale') for sale / gift
-					.item
-						#framing
-							a(href='/dev/frames') do-it-yourself framing
-					.item
-						#contact
-							a(href='/dev/contact') contact
+				block sidebar
+					.sidebar.col-md-3
+						.item
+							#home 
+								a(href="/dev/") home
+						.item
+							#albums 
+								a albums
+							#albumnames
+								#album1.album
+									a(href='/dev/album1') album 1
+								#album2.album
+									a(href='/dev/album2') album 2
+								#album3.album
+									a(href='/dev/album3') album 3
+						.item
+							#forsale
+								a(href='/dev/forsale') for sale / gift
+						.item
+							#framing
+								a(href='/dev/frames') do-it-yourself framing
+						.item
+							#contact
+								a(href='/dev/contact') contact
 
-			block content
+				block content
 
-			block footer
+				block footer
