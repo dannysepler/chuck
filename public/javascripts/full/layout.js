@@ -6,7 +6,7 @@ $(document).ready(function() {
 	});
 
 	// displaying album names onclick
-	$('#albums').click(function() {
+	$('#albums a').click(function() {
 		$('#albumnames').slideToggle('fast');
 	});
 

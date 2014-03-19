@@ -63,6 +63,11 @@ app.get('/dev/forsale', function(req,res) {
 	res.render('full/home.jade');
 });
 
+// framing
+app.get('/dev/frames', function(req,res) {
+	res.render('full/home.jade');
+});
+
 // contact
 app.get('/dev/contact', function(req,res) {
 	res.render('full/home.jade');
