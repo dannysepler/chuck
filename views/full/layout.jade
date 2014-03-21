@@ -24,25 +24,20 @@ html
 		link(href="//fonts.googleapis.com/css?family=Annie+Use Your Telescope:400" rel="stylesheet" type="text/css")
 
 		// javascripts
-		script(src="http://code.jquery.com/jquery-2.1.0.min.js")
-		script(src="/javascripts/bootstrap.min.js")
+		script(src="/javascripts/plugins/jquery.js")
+		script(src="/javascripts/plugins/bootstrap.min.js")
 		script(src='/javascripts/full/layout.js')
 		block scripts
 		
 	body
 		.container
 			.row
-				.col-sm-3 Left
-				.col-sm-3 Mid
-				.col-sm-3 Right
-
-			.row
 				block header
 					.bannerclick
 						h1#banner Chuck Edelstein Photography
 
 				block sidebar
-					.sidebar.col-sm-3
+					.col-sm-3.sidebar
 						.item
 							#home 
 								a(href="/dev/") home

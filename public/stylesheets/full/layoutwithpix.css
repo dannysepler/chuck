@@ -1,7 +1,9 @@
-.sidebar {
-	width: 150px;
+.slideshow {
+	height: 300px;
+	margin-bottom: 200px;
 }
 
-.slideshow {
-	margin-left: 160px;
+.img-responsive {
+	height: 300px;
+    margin: 0 auto;
 }
