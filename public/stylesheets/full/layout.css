@@ -6,7 +6,11 @@
 	font-family: "Amatic SC";
 	max-width: 50%;
 	font-size: 50px;
-	cursor: pointer;
+	cursor: default;
+		/* disabled the link for now. if you would like it
+		enabled, make sure to uncomment the javascript function
+		that makes it a link (in layout.js file), and make this
+		a "cursor: pointer;" */
 }
 
 .sidebar {
