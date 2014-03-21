@@ -68,12 +68,12 @@ app.get('/dev/forsale', function(req,res) {
 
 // framing
 app.get('/dev/frames', function(req,res) {
-	res.render('full/home.jade');
+	res.render('full/frames.jade');
 });
 
 // contact
 app.get('/dev/contact', function(req,res) {
-	res.render('full/home.jade');
+	res.render('full/contact.jade');
 });
 
 http.createServer(app).listen(app.get('port'), function(){
