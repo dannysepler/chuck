@@ -35,7 +35,7 @@ app.get('/users', user.list);
 /*  ~~~~~~~~~~~~~~~~
 	 TEMPORARY PAGE 
 	~~~~~~~~~~~~~~~~~	*/
-app.get('/', function(req,res) { res.render('home.jade'); });
+app.get('/', function(req,res) { res.render('temp/home.jade'); });
 
 /*  ~~~~~~~~~~~~~
 	 ACTUAL PAGE 

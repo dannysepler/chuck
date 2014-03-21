@@ -11,8 +11,8 @@ html
 		block title
 
 		// stylesheets
-		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-		link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.min.css')
+		link(rel='stylesheet', href='/stylesheets/boot/bootstrap.min.css')
+		link(rel='stylesheet', href='/stylesheets/boot/bootstrap-responsive.min.css')
 		link(rel='stylesheet', href='/stylesheets/full/layout.css')
 		block stylesheets
 		
@@ -32,9 +32,9 @@ html
 	body
 		.container
 			.row
-				.col-md-4 Left
-				.col-md-4 Mid
-				.col-md-4 Right
+				.col-sm-3 Left
+				.col-sm-3 Mid
+				.col-sm-3 Right
 
 			.row
 				block header
@@ -42,7 +42,7 @@ html
 						h1#banner Chuck Edelstein Photography
 
 				block sidebar
-					.sidebar.col-md-3
+					.sidebar.col-sm-3
 						.item
 							#home 
 								a(href="/dev/") home
