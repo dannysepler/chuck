@@ -50,20 +50,20 @@ app.get('/dev/home', function(req,res) {
 
 // albums
 app.get('/dev/album1', function(req,res) {
-	res.render('full/home.jade');
+	res.render('full/albums/1.jade');
 });
 
 app.get('/dev/album2', function(req,res) {
-	res.render('full/home.jade');
+	res.render('full/albums/1.jade');
 });
 
 app.get('/dev/album3', function(req,res) {
-	res.render('full/home.jade');
+	res.render('full/albums/1.jade');
 });
 
 // for sale
 app.get('/dev/forsale', function(req,res) {
-	res.render('full/home.jade');
+	res.render('full/albums/1.jade');
 });
 
 // framing
