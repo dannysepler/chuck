@@ -21,11 +21,25 @@ a {
 a:hover {
 	color: #B20059;
 	
-
 	/* same color */
 	/* color: #006600; */
 }
 
+/* mobile menu screen */
+
+.nav {
+	height:auto;
+}
+
+.mobile-album-dropdown {
+}
+
+.nav li a {
+	text-align: center;
+}
+
+
+/* full screen content */
 .item {
 	margin-top: 10px;
 }
@@ -45,4 +59,20 @@ a:hover {
 #albums a {
 	margin-top: 1em;
 	cursor: pointer;
+}
+
+@media (max-width: 769px) {
+	.full-view {display:none;}
+	.nav {display:block;}
+	#banner {max-width: 100%;}
+	#banner {text-align: center;}
+	#albumnames {display:none;}
+}
+
+@media(min-width: 768px) {
+	.full-view {display:block;}
+	.nav {display:none;}
+	#banner {max-width: 50%;}
+	#banner {text-align: left;}
+	#albumnames {display:block;}
 }
