@@ -12,24 +12,15 @@ block scripts
 block image-info
 	img.img-responsive.img-center(src="/images/lake.jpg", style="height: 200px;margin: 0 auto;")
 
-	// intro
-	.intro()
-		h4.text-center(style="font-family:arial;") intro
-		p.text-center Welcome to your website! This is in arial font. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+// intro
+block rest-of-content
+	.intro
+		h1.text-center Hi, I'm Chuck.
+		p.text-center 
+			| Welcome to my website! Take a look at my pictures, learn about how buying photos (mine or otherwise) can be easy and affordable, or 
+			a(href='/contact') get in touch 
+			| with me. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-	// artist's mission statement
-	.mission-statement(style="font-family:verdana;")
-		h4.text-center mission statement
-		p.text-center This is in verdana font. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+	img.img-responsive.img-center(src="/images/profile.jpg", style="height: 200px;margin: 0 auto;")
 
-	img.img-responsive.img-center(src="/images/lower_res/tree.jpg", style="height: 200px;margin: 0 auto;")
-
-	// extra paragraph to check out one amatic sc font
-	.extra-paragraph(style="font-family:\"Amatic SC\";")
-		h4.text-center extra paragraph
-		p.text-center This is in "Amatic SC" font. (One of the one's that Vas's web page uses.) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-	// extra paragraph to check out one more font
-	.extra-paragraph(style="font-family:\"Annie Use Your Telescope\";")
-		h4.text-center another extra paragraph
-		p.text-center This is in "Annie Use Your Telescope" font. (Another one of the ones Vas's page uses.) Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+	p.text-center (yeah, i have no idea why this picture is sideways....)

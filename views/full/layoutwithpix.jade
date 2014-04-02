@@ -7,7 +7,8 @@ block scripts
 	script(src='/javascripts/full/layoutwithpix.js')
 
 block content
-	.slideshow.col-sm-9
-		block image-info
-		// sample code:
-		// img.img-responsive.img-center(src="/images/lower_res/tree.jpg", style="height: 200px;margin: 0 auto;")
+	.col-sm-9
+		.slideshow
+			block image-info
+
+		block rest-of-content

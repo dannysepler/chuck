@@ -31,7 +31,8 @@ a:hover {
 }
 
 .content {
-	font-family: arial;
+	font-family: "Amatic SC";
+	font-size: 20px;
 }
 
 .album { margin-top: 10px; }
