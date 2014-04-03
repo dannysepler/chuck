@@ -13,4 +13,7 @@ $(document).ready(function() {
 		$('#albumnames').slideToggle('fast');
 	});
 
+	$('.navbar-toggle').click(function() {
+		$('.navbar-collapse').slideToggle('fast');
+	});
 });

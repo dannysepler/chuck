@@ -1,3 +1,12 @@
-.contact-content {
-	padding-left: 280px;
+
+
+@media (max-width: 769px) {
+	.contact-content {
+		padding-left:none;
+		text-align: center;
+	}
+}
+
+@media(min-width: 768px) {
+	.contact-content {padding-left: 200px;}
 }
