@@ -75,7 +75,7 @@ a:hover {
 	cursor: pointer;
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width: 480px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 	.full-view {display:none;}
 	.nav {display:block;}
 	.collapse.in {display:none;}
@@ -84,30 +84,19 @@ a:hover {
 	#albumnames {display:block;}
 }
 
-/*@media (max-width: 769px) {
+/*@media only (max-width: 769px) {
 	.full-view {display:none;}
 	.nav {display:block;}
 	.collapse.in {display:none;}
 	#banner {max-width: 100%;}
 	#banner {text-align: center;}
 	#albumnames {display:block;}
-}*/
+}
 
-/*
-@media only screen and (min-device-width : 320px) and (max-device-width: 480px) {
-	.full-view {display:none;}
-	.nav {display:block;}
-	.collapse.in {display:none;}
-	#banner {max-width: 100%;}
-	#banner {text-align: center;}
-	#albumnames {display:block;}
-}*/
-
-@media(min-width: 768px) {
+@media only (min-width: 768px) {
 	.full-view {display:block;}
 	.nav {display:none;}
-
 	#banner {max-width: 50%;}
 	#banner {text-align: left;}
 	#albumnames {display:none;}
-}
+}*/
