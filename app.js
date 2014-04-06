@@ -9,7 +9,8 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 
-var ArticleProvider = require('./public/javascripts/database/data').ArticleProvider;
+//var ArticleProvider = require('./public/javascripts/database/data').ArticleProvider;
+var ArticleProvider = require('./public/javascripts/database/mongo').ArticleProvider;
 
 var app = express();
 
@@ -21,6 +22,7 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
@@ -79,17 +81,35 @@ app.get('/dev/contact', function(req,res) {
 });
 
 // database things 
-var articleProvider= new ArticleProvider();
+var articleProvider = new ArticleProvider('localhost', 27017);
+console.log( articleProvider.findAll() );
+console.log('test');
 
 app.get('/data', function(req, res) {
     articleProvider.findAll( function(error,docs){
-        res.render('full/data/index', { locals: {
-            title: 'Blog',
-            articles:docs
-            }, },
-            { data: "hey!" }
-        );
+        res.render('full/data/index', { 
+           	//locals: {
+           		title: 'Blog',
+            	articles:docs
+        	//}
+        });
     });
+
+});
+
+app.get('/data/new', function(req, res) {
+	res.render('full/data/new', {
+		title: 'New Post'
+	});
+});
+
+app.post('/data/new', function(req, res) {
+	articleProvider.save({
+		title: req.param('title'),
+		body: req.param('body')
+	}, function( error, docs) {
+		res.redirect('/data')
+	});
 });
 
 http.createServer(app).listen(app.get('port'), function(){
