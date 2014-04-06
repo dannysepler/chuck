@@ -9,6 +9,8 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 
+var ArticleProvider = require('./public/javascripts/database/data').ArticleProvider;
+
 var app = express();
 
 // all environments
@@ -74,6 +76,20 @@ app.get('/dev/frames', function(req,res) {
 // contact
 app.get('/dev/contact', function(req,res) {
 	res.render('full/contact.jade');
+});
+
+// database things 
+var articleProvider= new ArticleProvider();
+
+app.get('/data', function(req, res) {
+    articleProvider.findAll( function(error,docs){
+        res.render('full/data/index', { locals: {
+            title: 'Blog',
+            articles:docs
+            }, },
+            { data: "hey!" }
+        );
+    });
 });
 
 http.createServer(app).listen(app.get('port'), function(){
