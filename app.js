@@ -82,8 +82,9 @@ app.get('/dev/contact', function(req,res) {
 
 // database things 
 var articleProvider = new ArticleProvider('localhost', 27017);
-console.log( articleProvider.findAll() );
-console.log('test');
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27017/nodetest1');
 
 app.get('/data', function(req, res) {
     articleProvider.findAll( function(error,docs){
