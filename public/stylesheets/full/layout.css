@@ -84,9 +84,7 @@ a:hover {
 	#albumnames {display:block;}
 }
 
-@media only screen 
-	and (min-device-width : 320px) 
-	and (max-device-width: 480px) {
+@media only screen and (min-device-width : 320px) and (max-device-width: 480px) {
 	.full-view {display:none;}
 	.nav {display:block;}
 	.collapse.in {display:none;}
