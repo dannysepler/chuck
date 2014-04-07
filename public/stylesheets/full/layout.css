@@ -84,6 +84,7 @@ a:hover {
 	#albumnames {display:block;}
 }
 
+/*
 @media (max-width: 769px) {
 	.full-view {display:none;}
 	.nav {display:block;}
@@ -100,3 +101,4 @@ a:hover {
 	#banner {text-align: left;}
 	#albumnames {display:none;}
 }
+*/
