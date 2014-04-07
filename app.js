@@ -89,32 +89,6 @@ var db = monk('localhost:27017/nodetest1');
 app.get('/userlist', routes.userlist(db));
 app.get('/newuser', routes.newuser);
 app.post('/adduser', routes.adduser(db));
-app.get('/data', function(req, res) {
-    articleProvider.findAll( function(error,docs){
-        res.render('full/data/index', { 
-           	//locals: {
-           		title: 'Blog',
-            	articles:docs
-        	//}
-        });
-    });
-
-});
-
-app.get('/data/new', function(req, res) {
-	res.render('full/data/new', {
-		title: 'New Post'
-	});
-});
-
-app.post('/data/new', function(req, res) {
-	articleProvider.save({
-		title: req.param('title'),
-		body: req.param('body')
-	}, function( error, docs) {
-		res.redirect('/data')
-	});
-});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
