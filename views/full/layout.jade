@@ -46,22 +46,20 @@ html
 						ul.nav.navbar-nav
 							li
 								a(href="/dev/") home
-							//li 
-								a(href="#") album1
-							//li 
-								a(href="#") album2
-							//li 
-								a(href="#") album3
 							
 							//li#albumnames.mobile-album-dropdown
 								a albums
 							
-							li#album1.album
-								a(href='/dev/album1') critters
-							li#album2.album
-								a(href='/dev/album2') landscape
-							li#album3.album
-								a(href='/dev/album3') more
+							- each albumname in links
+								li.album
+									a(href='/dev/album1')= albumname.albumname
+
+							//li#album1.album
+							//	a(href='/dev/album1') critters
+							//li#album2.album
+							//	a(href='/dev/album2') landscape
+							//li#album3.album
+							//	a(href='/dev/album3') more
 
 							li
 								a(href='/dev/forsale') for sale
@@ -77,16 +75,21 @@ html
 						.item
 							#home 
 								a(href="/dev/") home
+						
 						.item
 							#albums 
 								a albums
 							#albumnames
-								#album1.album
-									a(href='/dev/album1') critters
-								#album2.album
-									a(href='/dev/album2') landscape
-								#album3.album
-									a(href='/dev/album3') more
+								- each albumname in links
+									.album
+										a(href='/dev/album1')= albumname.albumname
+
+								//#album1.album
+								//	a(href='/dev/album1') critters
+								//#album2.album
+								//	a(href='/dev/album2') landscape
+								//#album3.album
+								//	a(href='/dev/album3') more
 						.item
 							#forsale
 								a(href='/dev/forsale') for sale / gift

@@ -13,6 +13,10 @@ var app = express();
 
 // all environments
 app.set('port', process.env.PORT || 8080);
+				// this is where you change which port it runs off of
+				// to run it on DigitalOcean, run:
+				//		"PORT=80 node app.js"
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());
@@ -30,24 +34,50 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-// app.get('/', routes.index);
-app.get('/users', user.list);
-
-/*  ~~~~~~~~~~~~~~~~
+/*  
+	~~~~~~~~~~~~~~~~
 	 TEMPORARY PAGE 
-	~~~~~~~~~~~~~~~~~	*/
+	~~~~~~~~~~~~~~~~~	
+						*/
+
 app.get('/', function(req,res) { res.render('temp/home.jade'); });
 
-/*  ~~~~~~~~~~~~~
+/*  
+	~~~~~~~~~~~~~
 	 ACTUAL PAGE 
-	~~~~~~~~~~~~~~	*/
+	~~~~~~~~~~~~~~	
+					*/
+
+/* 	
+	DATABASE ESSENTIALS
+						*/
+
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27017/nodetest1');
+
+/* 
+		VIEWS
+					*/
+
+app.get('/userlist', routes.userlist(db));
+app.get('/newuser', routes.newuser);
+app.post('/adduser', routes.adduser(db));
+
+
+// incorporated to ours
+app.get('/newalbum', routes.newalbum);
+app.post('/addalbum', routes.addalbum(db));
+
 // home
 app.get('/dev/', function(req, res) { res.redirect('/dev/home'); });
 app.get('/dev',  function(req, res) { res.redirect('/dev/home'); })
 
-app.get('/dev/home', function(req,res) { 
-	res.render('full/home.jade'); 
-});
+app.get('/dev/home', routes.home(db));
+
+//app.get('/dev/home', function(req,res) { 
+//	res.render('full/home.jade'); 
+//});
 
 // albums
 app.get('/dev/album1', function(req,res) {
@@ -76,15 +106,6 @@ app.get('/dev/frames', function(req,res) {
 app.get('/dev/contact', function(req,res) {
 	res.render('full/contact.jade');
 });
-
-// database things 
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/nodetest1');
-
-app.get('/userlist', routes.userlist(db));
-app.get('/newuser', routes.newuser);
-app.post('/adduser', routes.adduser(db));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
