@@ -86,6 +86,9 @@ var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/nodetest1');
 
+app.get('/userlist', routes.userlist(db));
+app.get('/newuser', routes.newuser);
+app.post('/adduser', routes.adduser(db));
 app.get('/data', function(req, res) {
     articleProvider.findAll( function(error,docs){
         res.render('full/data/index', { 
