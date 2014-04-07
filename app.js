@@ -9,9 +9,6 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 
-//var ArticleProvider = require('./public/javascripts/database/data').ArticleProvider;
-var ArticleProvider = require('./public/javascripts/database/mongo').ArticleProvider;
-
 var app = express();
 
 // all environments
@@ -81,7 +78,6 @@ app.get('/dev/contact', function(req,res) {
 });
 
 // database things 
-var articleProvider = new ArticleProvider('localhost', 27017);
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/nodetest1');
