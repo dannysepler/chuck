@@ -1,4 +1,14 @@
-/* THIS IS THE HOME PAGE */
+var mongo = require('mongodb');
+var monk = require('monk');
+var Db = monk('localhost:27017/nodetest1');
+
+/*  
+
+    ~~~~~~~~~~~~~~~~
+     STANDARD VIEWS
+    ~~~~~~~~~~~~~~~~ 
+
+                       */
 
 exports.home = function(db) {
     return function(req, res) {
@@ -11,6 +21,63 @@ exports.home = function(db) {
     };
 };
 
+exports.standardalbum = function(db) {
+    return function(req, res) {
+        var links = db.get('links');
+        links.find({},{}, function(e, docs) {
+            res.render('full/albums/1.jade', {
+                "links" : docs
+            });
+        });
+    };
+};
+
+//exports.show = function(req,res,next) {
+exports.show = function(db) {
+    //var album_name = req.cookies ? req.cookies.album_name : undefined;
+
+    return function(req, res) {
+        var links = Db.get('links');
+        links.find({},{}, function(e, docs) {
+            res.render('full/albums/1.jade', {
+                "links" : docs
+        //        "name"  : album_name
+            });
+        });
+    };
+};
+
+exports.frames = function(db) {
+    return function(req, res) {
+        var links = db.get('links');
+        links.find({},{}, function(e, docs) {
+            res.render('full/frames.jade', {
+                "links" : docs
+            });
+        });
+    };
+};
+
+exports.contact = function(db) {
+    return function(req, res) {
+        var links = db.get('links');
+        links.find({},{}, function(e, docs) {
+            res.render('full/contact.jade', {
+                "links" : docs
+            });
+        });
+    };
+};
+
+
+/*  
+
+    ~~~~~~~~~~~~~~~~~~~~
+    EDITING ALBUMS VIEWS
+    ~~~~~~~~~~~~~~~~~~~~~
+    
+
+                            */
 exports.newalbum = function(req, res){
   res.render('full/data/newalbum', { title: 'Add New Album' });
 };
