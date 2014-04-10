@@ -66,37 +66,43 @@ app.post('/adduser', routes.adduser(db));
 
 
 // incorporated to ours
+app.get('/albumlist', routes.albumlist(db))
 app.get('/newalbum', routes.newalbum);
 app.post('/addalbum', routes.addalbum(db));
 
 // home
 app.get('/dev/', function(req, res) { res.redirect('/dev/home'); });
 app.get('/dev',  function(req, res) { res.redirect('/dev/home'); })
-
 app.get('/dev/home', routes.home(db));
-
-//app.get('/dev/home', function(req,res) { 
-//	res.render('full/home.jade'); 
-//});
 
 // album views
 app.get('/dev/album1', routes.standardalbum(db));
-app.get('/dev/album2', routes.standardalbum(db));
-app.get('/dev/album3', routes.standardalbum(db));
 
-//app.get('/dev/albums/:albumname', routes.show );
-app.get('/dev/albums/:albumname', routes.show(db) );
+	//	FOR FUTURE: get this to route cleanly, like...
+	//	app.get('/dev/albums/:albumname', routes.show(db));
+app.get('/albums/:albumname', function(req, res) {
+  db.get('links').find({'albumname': req.params.albumname}, ( function(error,docs) {
+  		// CREATE ERROR STATEMENT
+  		// if (empty) res.send('error!');
+  		res.send(docs);
+  		})
+ 	 );
+	/*
+	////////// for rendering images down the road
+	res.writeHead('200', {'Content-Type': 'image/png'});
+     res.end(data,'binary');
+  	}, req.params.imgtag );
+	*/
+});
 
-/*app.get('/dev/albums/:albumname', function(req,res) {
-	var name = req.params.id;
-	var links = db.get('links');
-    links.find({},{}, function(e, docs) {
-        res.render('full/albums/1.jade', {
-            "links" : docs,
-            "name" : name
-        });
-    });
-});*/
+// display image
+
+
+
+
+
+
+
 
 // for sale
 app.get('/dev/forsale', routes.standardalbum(db));
