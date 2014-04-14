@@ -10,5 +10,11 @@ block scripts
 	script(src='/javascripts/full/home.js')
 
 block image-info
+	h1.text-center= info.albumname
+	
+	// h1.text-center= JSON.stringify( links )
+	// h1.text-center= JSON.stringify( links ) 
+	// h1.text-center= links[0]
+	- console.log( links )
+
 	img.img-responsive.img-center(src="/images/lower_res/tree.jpg", style="height: 200px;margin: 0 auto;")
-	h1.text-center= name

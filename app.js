@@ -9,6 +9,7 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 
+
 var app = express();
 
 // all environments
@@ -56,6 +57,9 @@ var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/nodetest1');
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/nodetest1');
+
 /* 
 		VIEWS
 					*/
@@ -80,23 +84,88 @@ app.get('/dev/album1', routes.standardalbum(db));
 
 	//	FOR FUTURE: get this to route cleanly, like...
 	//	app.get('/dev/albums/:albumname', routes.show(db));
-app.get('/albums/:albumname', function(req, res) {
-  db.get('links').find({'albumname': req.params.albumname}, ( function(error,docs) {
-  		// CREATE ERROR STATEMENT
-  		// if (empty) res.send('error!');
-  		res.send(docs);
-  		})
- 	 );
-	/*
-	////////// for rendering images down the road
-	res.writeHead('200', {'Content-Type': 'image/png'});
-     res.end(data,'binary');
-  	}, req.params.imgtag );
-	*/
+
+
+app.get('/dev/albums/:albumname', function(req, res) {
+  var links = db.get('links');
+  links.find({'albumname': req.params.albumname}, {}, ( function(error, docs) {
+      res.render('full/albums/individual', {
+        "info" : docs[0],
+        "links": links
+
+      })
+    })
+  )
+})
+
+app.get('/dev/albuminfo/:albumname', function(req, res) {
+  var links = db.get('links');
+  links.find({'albumname': req.params.albumname}, ( function(error, docs) {
+      res.send(docs);
+    })
+  )
 });
 
-// display image
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ANOTHER TUTORIAL I FOUND ONLINE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+
+var fs = require('fs');
+var im = require('imagemagick');
+
+var form = "<!DOCTYPE HTML><html><body>" +
+"<form method='post' action='/tutorial2/upload' enctype='multipart/form-data'>" +
+"<input type='file' name='image'/>" +
+"<input type='submit' /></form>" +
+"</body></html>";
+
+app.get('/tutorial2/', function (req, res){
+	res.writeHead(200, {'Content-Type': 'text/html' });
+	res.end(form);
+
+});
+
+/// Include the node file module
+
+/// Post files
+app.post('/tutorial2/upload', function(req, res) {
+
+	fs.readFile(req.files.image.path, function (err, data) {
+
+		var imageName = req.files.image.name
+		console.log(imageName);
+
+		/// If there's an error
+		if(!imageName){
+
+			console.log("There was an error")
+			res.redirect("/tutorial2/");
+			res.end();
+
+		} else {
+
+		  var newPath = __dirname + "/public/images/tutorial2/" + imageName;
+
+		  /// write file to uploads/fullsize folder
+		  fs.writeFile(newPath, data, function (err) {
+		  	console.log('wrote file at '+newPath);
+		  	console.log('__dirname is '+__dirname);
+		  	/// let's see it
+		  	res.redirect("/tutorial2/images/" + imageName);
+
+		  });
+		}
+	});
+});
+
+/// Show files
+app.get('/tutorial2/images/:file', function (req, res){
+	file = req.params.file;
+	var img = fs.readFileSync(__dirname + "/public/images/tutorial2/" + file);
+	res.writeHead(200, {'Content-Type': 'image/jpg' });
+	res.end(img, 'binary');
+});
 
 
 
