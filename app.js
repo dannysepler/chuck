@@ -60,15 +60,15 @@ app.get('/prod/', function(req, res) { res.redirect('/prod/home'); });
 app.get('/prod',  function(req, res) { res.redirect('/prod/home'); })
 app.get('/prod/home', prod.home());
 
-// page-specific
-app.get('/prod/forsale', prod.home());
-app.get('/prod/frames', prod.frames());
-app.get('/prod/contact', prod.contact());
-
 // albums
 app.get('/prod/albums/critters', prod.albums_critters());
 app.get('/prod/albums/landscapes', prod.albums_landscapes());
 app.get('/prod/albums/more', prod.albums_more());
+
+// page-specific
+app.get('/prod/forsale', prod.forsale());
+app.get('/prod/frames', prod.frames());
+app.get('/prod/contact', prod.contact());
 
 
 

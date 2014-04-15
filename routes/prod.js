@@ -16,18 +16,6 @@ exports.home = function() {
     };
 };
 
-exports.frames = function() {
-    return function(req, res) {
-	    res.render('full/home');
-    };
-};
-
-exports.contact = function() {
-    return function(req, res) {
-		res.render('full/home')
-    };
-};
-
 
 // ALBUM VIEWS
 exports.albums_critters = function() {
@@ -45,5 +33,25 @@ exports.albums_landscapes = function() {
 exports.albums_more = function() {
     return function(req, res) {
 		res.render('prod/albums/more')
+    };
+};
+
+
+// MORE PAGES
+exports.forsale = function() {
+    return function(req, res) {
+        res.render('prod/forsale');
+    };
+};
+
+exports.frames = function() {
+    return function(req, res) {
+        res.render('prod/framing');
+    };
+};
+
+exports.contact = function() {
+    return function(req, res) {
+        res.render('prod/contact')
     };
 };
