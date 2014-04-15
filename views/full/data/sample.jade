@@ -4,4 +4,5 @@ block content
     ul
         each user, i in userlist
             li
-                p= JSON.stringify(user)
+                p
+                    a(href="delete/"+user.albumname)= JSON.stringify(user)

@@ -1,0 +1,14 @@
+extends index
+
+block stylesheets
+	link(rel='stylesheet', href="/stylesheets/full/layoutwithpix.css")
+
+block scripts
+	script(src='/javascripts/full/layoutwithpix.js')
+	script(src='/javascripts/prod/carousel.js')
+
+block content
+	.col-sm-9
+		block image-info
+
+		block rest-of-content

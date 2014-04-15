@@ -1,0 +1,28 @@
+extends ../layouts/withpic
+// don't forget to add title!!
+
+block stylesheets
+	link(rel='stylesheet', href="/stylesheets/prod/carousel.css")
+
+
+block image-info
+	block label
+	
+	#Carousel.carousel.slide.carousel-fade(data-ride="carousel")
+		ol.carousel-indicators
+			// indicators
+			// li.active(data-target="#Carousel" data-slide-to="0")
+			// li(data-target="#Carousel" data-slide-to="1")
+			// li(data-target="#Carousel" data-slide-to="2")
+
+			// wrapper for slides
+		.carousel-inner
+			block pix
+
+		// controls
+		.buttons
+			a.left-carousel-control(href="#Carousel" data-slide="prev") prev
+				// span.glyphicon.glyphicon-chevron-left 
+			|  / 
+			a.right-carousel-control(href="#Carousel" data-slide="next") next
+				// span.glyphicon.glyphicon-chevron-right

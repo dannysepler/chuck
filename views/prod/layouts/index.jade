@@ -1,0 +1,100 @@
+//
+// CHUCK EDELSTEIN photography website
+//
+// prod site layout
+// (no database)
+//
+
+doctype html
+html
+	head
+		// title
+		block title
+
+		// stylesheets
+		link(rel='stylesheet', href='/stylesheets/boot/bootstrap.min.css')
+		link(rel='stylesheet', href='/stylesheets/boot/bootstrap-responsive.min.css')
+		link(rel='stylesheet', href='/stylesheets/full/layout.css')
+		block stylesheets
+		
+		// tab icon
+		link(rel="shortcut icon" href="/images/camera.ico")
+
+		// fonts
+		link(href="//fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet" type="text/css")
+		link(href="//fonts.googleapis.com/css?family=Annie+Use Your Telescope:400" rel="stylesheet" type="text/css")
+
+		// javascripts
+		script(src="/javascripts/plugins/jquery.js")
+		script(src="/javascripts/plugins/bootstrap.min.js")
+		script(src='/javascripts/full/layout.js')
+		block scripts
+		
+	body
+		.container
+			.row
+				block header
+					.bannerclick
+						h1#banner Chuck Edelstein Photography
+
+					button.navbar-toggle.collapsed.span7.text-center(type='button', data-toggle='collapse' data-target='.navbar-collapse')
+							span.sr-only Toggle Navigation
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+
+					.navbar-collapse.collapse.in
+						ul.nav.navbar-nav
+							li
+								a(href="/prod/") home
+							
+							//li#albumnames.mobile-album-dropdown
+								a albums
+
+							li#album1.album
+								a(href='/prod/albums/critters') critters
+							li#album2.album
+								a(href='/prod/albums/landscapes') landscapes
+							li#album3.album
+								a(href='/prod/albums/more') more
+
+							li
+								a(href='/prod/forsale') for sale
+
+							li
+								a(href='/prod/frames') do-it-yourself framing
+
+							li
+								a(href='/prod/contact') contact
+
+				block sidebar
+					.col-sm-3.sidebar.full-view
+						.item
+							#home 
+								a(href="/prod/") home
+						
+						.item
+							#albums 
+								a albums
+
+							#albumnames
+								#album1.album
+									a(href='/prod/albums/critters') critters
+								#album2.album
+									a(href='/prod/albums/landscapes') landscapes
+								#album3.album
+									a(href='/prod/albums/more') more
+						.item
+							#forsale
+								a(href='/prod/forsale') for sale / gift
+						.item
+							#framing
+								a(href='/prod/frames') do-it-yourself framing
+						.item
+							#contact
+								a(href='/prod/contact') contact
+
+				.content
+					block content
+
+				block footer

@@ -1,6 +1,6 @@
 var mongo = require('mongodb');
 var monk = require('monk');
-var DB = monk('localhost:27017/nodetest1');
+var db = monk('localhost:27017/nodetest1');
 
 /*  
 

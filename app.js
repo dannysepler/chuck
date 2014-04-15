@@ -4,8 +4,9 @@
  */
 
 var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
+var routes = require('./routes'); // this links to './routes/index.js'
+var user = require('./routes/user'); //   links to './routes/user.js'
+var prod = require('./routes/prod'); //   links to './routes/prod.js'
 var http = require('http');
 var path = require('path');
 
@@ -49,16 +50,55 @@ app.get('/', function(req,res) { res.render('temp/home.jade'); });
 	~~~~~~~~~~~~~~	
 					*/
 
+
+/* --------------------
+      PRODUCTION
+    -------------------- */
+
+// home
+app.get('/prod/', function(req, res) { res.redirect('/prod/home'); });
+app.get('/prod',  function(req, res) { res.redirect('/prod/home'); })
+app.get('/prod/home', prod.home());
+
+// page-specific
+app.get('/prod/forsale', prod.home());
+app.get('/prod/frames', prod.frames());
+app.get('/prod/contact', prod.contact());
+
+// albums
+app.get('/prod/albums/critters', prod.albums_critters());
+app.get('/prod/albums/landscapes', prod.albums_landscapes());
+app.get('/prod/albums/more', prod.albums_more());
+
+
+
+
+
 /* 	
 	DATABASE ESSENTIALS
 						*/
 
 var mongo = require('mongodb');
+var MongoClient = require('mongodb').MongoClient;
 var monk = require('monk');
 var db = monk('localhost:27017/nodetest1');
 
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/nodetest1');
+
+/* CONNECT MONGOCLIENT */
+MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
+  if(err) { return console.dir(err); }
+
+  var collection = db.collection('test');
+});
+
+
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost:27017/nodetest1');
+
+/* --------------------
+        DEVELOPMENT
+    -------------------- */
+
 
 /* 
 		VIEWS
@@ -67,7 +107,6 @@ mongoose.connect('mongodb://localhost:27017/nodetest1');
 app.get('/userlist', routes.userlist(db));
 app.get('/newuser', routes.newuser);
 app.post('/adduser', routes.adduser(db));
-
 
 // incorporated to ours
 app.get('/albumlist', routes.albumlist(db))
@@ -92,7 +131,6 @@ app.get('/dev/albums/:albumname', function(req, res) {
       res.render('full/albums/individual', {
         "info" : docs[0],
         "links": links
-
       })
     })
   )
@@ -106,8 +144,25 @@ app.get('/dev/albuminfo/:albumname', function(req, res) {
   )
 });
 
+app.get('/delete/:albumname', function(req, res) {
+  //var links = db.get('links');
+  /*
+  links.find({'albumname': req.params.albumname}, ( function(error, docs) {
+      docs.remove( function ( err, docs ) {
+        if( err ) return next( err );
+      })
+    })
+  )
+  */
+  MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
+  if(err) { return console.dir(err); }
+
+  var collection = db.collection('test');
+});
+})
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-ANOTHER TUTORIAL I FOUND ONLINE
+    THE IMAGE UPLOADING STUFF
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 
@@ -166,12 +221,6 @@ app.get('/tutorial2/images/:file', function (req, res){
 	res.writeHead(200, {'Content-Type': 'image/jpg' });
 	res.end(img, 'binary');
 });
-
-
-
-
-
-
 
 // for sale
 app.get('/dev/forsale', routes.standardalbum(db));
