@@ -1,5 +1,6 @@
 .container {
 	font-family: "Annie Use Your Telescope";
+	margin-bottom: 20px;
 }
 
 #banner {
@@ -41,12 +42,7 @@ a:hover {
 	margin-bottom: 40px;
 }
 .collapse.in{display:none;}
-.icon-bar {
-	background-color: white;
-}
-
-.mobile-album-dropdown {
-}
+.icon-bar {background-color: white;}
 
 .nav li a {
 	text-align: center;
