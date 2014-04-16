@@ -109,3 +109,7 @@ li.active {
 @media (min-width: 768px) {
 	.content {margin-top: 0px;}
 }
+
+@media screen and (min-device-width: 320px) and (max-device-width: 900px) {
+	.buttons {font-size: 30px;}
+}
