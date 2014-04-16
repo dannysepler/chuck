@@ -1,0 +1,103 @@
+.container {
+	font-family: "Annie Use Your Telescope";
+}
+
+#banner {
+	font-family: "Amatic SC";
+	max-width: 50%;
+	font-size: 50px;
+	cursor: default;
+		/* disabled the link for now. if you would like it
+		enabled, make sure to uncomment the javascript function
+		that makes it a link (in layout.js file), and make this
+		a "cursor: pointer;" */
+}
+
+a {
+	color: #006600;
+	font-size: 20px;
+}
+
+a:hover {
+	color: #B20059;
+	
+	/* same color */
+	/* color: #006600; */
+}
+
+/* mobile menu screen */
+
+.span7 {width:inherit;}
+.navbar-toggle {
+	background-color:#006600;
+	float:none;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.nav {height:auto;}
+.navbar-collapse{
+	display:none;
+	margin-bottom: 40px;
+}
+.collapse.in{display:none;}
+.icon-bar {
+	background-color: white;
+}
+
+.mobile-album-dropdown {
+}
+
+.nav li a {
+	text-align: center;
+}
+
+
+/* full screen content */
+.item {
+	margin-top: 10px;
+}
+
+.content {
+	font-family: "Amatic SC";
+	font-size: 20px;
+}
+
+.album { margin-top: 10px; }
+
+#albumnames {
+	display: none;
+	padding-left: 1em;
+}
+
+#albums a {
+	margin-top: 1em;
+	cursor: pointer;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 900px) {
+	.full-view {display:none;}
+	.nav {display:block;}
+	.collapse.in {display:none;}
+	#banner {max-width: 100%;}
+	#banner {text-align: center;}
+	#albumnames {display:block;}
+}
+
+
+@media (max-width: 769px) {
+	.full-view {display:none;}
+	.nav {display:block;}
+	.collapse.in {display:none;}
+	#banner {max-width: 100%;}
+	#banner {text-align: center;}
+	#albumnames {display:block;}
+}
+
+@media (min-width: 768px) {
+	.full-view {display:block;}
+	.nav {display:none;}
+	#banner {max-width: 50%;}
+	#banner {text-align: left;}
+	#albumnames {display:none;}
+}
