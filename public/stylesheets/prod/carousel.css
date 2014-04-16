@@ -101,3 +101,11 @@ li.active {
 .carousel-fade .carousel-control {
   z-index: 2;
 }
+
+@media (max-width: 769px) {
+	.content {margin-top: 150px;}
+}
+
+@media (min-width: 768px) {
+	.content {margin-top: 0px;}
+}
