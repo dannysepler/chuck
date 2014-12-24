@@ -42,8 +42,8 @@ if ('development' == app.get('env')) {
 	~~~~~~~~~~~~~~~~~	
 						*/
 
-app.get('/', function(req,res) { res.render('temp/home.jade'); });
-
+//app.get('/', function(req,res) { res.render('temp/home.jade'); });
+// shouldn't be used
 /*  
 	~~~~~~~~~~~~~
 	 ACTUAL PAGE 
@@ -56,19 +56,21 @@ app.get('/', function(req,res) { res.render('temp/home.jade'); });
     -------------------- */
 
 // home
-app.get('/prod/', function(req, res) { res.redirect('/prod/home'); });
-app.get('/prod',  function(req, res) { res.redirect('/prod/home'); })
-app.get('/prod/home', prod.home());
+app.get('/', function(req, res) { res.redirect('/home'); });
+app.get('/home', prod.home());
 
 // albums
-app.get('/prod/albums/critters', prod.albums_critters());
-app.get('/prod/albums/landscapes', prod.albums_landscapes());
-app.get('/prod/albums/more', prod.albums_more());
+app.get('/albums/birds', prod.albums_birds());
+app.get('/albums/critters', prod.albums_critters());
+app.get('/albums/bigger_than_critters', prod.albums_bigger_than_critters());
+app.get('/albums/landscapes', prod.albums_landscapes());
+app.get('/albums/other', prod.albums_other_stuff());
+app.get('/albums/more', prod.albums_more());
 
 // page-specific
-app.get('/prod/forsale', prod.forsale());
-app.get('/prod/frames', prod.frames());
-app.get('/prod/contact', prod.contact());
+app.get('/forsale', prod.forsale());
+app.get('/frames', prod.frames());
+app.get('/contact', prod.contact());
 
 
 
@@ -77,7 +79,7 @@ app.get('/prod/contact', prod.contact());
 /* 	
 	DATABASE ESSENTIALS
 						*/
-
+/*
 var mongo = require('mongodb');
 var MongoClient = require('mongodb').MongoClient;
 var monk = require('monk');
@@ -85,7 +87,7 @@ var db = monk('localhost:27017/nodetest1');
 
 
 /* CONNECT MONGOCLIENT */
-MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
+/*MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
   if(err) { return console.dir(err); }
 
   var collection = db.collection('test');
@@ -104,7 +106,7 @@ MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
 		VIEWS
 					*/
 
-app.get('/userlist', routes.userlist(db));
+/*app.get('/userlist', routes.userlist(db));
 app.get('/newuser', routes.newuser);
 app.post('/adduser', routes.adduser(db));
 
@@ -154,7 +156,7 @@ app.get('/delete/:albumname', function(req, res) {
     })
   )
   */
-  MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
+  /*MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
   if(err) { return console.dir(err); }
 
   var collection = db.collection('test');
@@ -165,7 +167,7 @@ app.get('/delete/:albumname', function(req, res) {
     THE IMAGE UPLOADING STUFF
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-
+/*
 var fs = require('fs');
 var im = require('imagemagick');
 

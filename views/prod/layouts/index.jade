@@ -53,53 +53,66 @@ html
 					.navbar-collapse.collapse.in
 						ul.nav.navbar-nav
 							li
-								a(href="/prod/") home
+								a(href="/") home
 							
 							//li#albumnames.mobile-album-dropdown
 								a albums
 
 							li#album1.album
-								a(href='/prod/albums/critters') critters
+								a(href='/albums/birds') birds
 							li#album2.album
-								a(href='/prod/albums/landscapes') landscapes
+								a(href='/albums/critters') critters
 							li#album3.album
-								a(href='/prod/albums/more') more
-
+								a(href='/albums/bigger_than_critters') bigger than critters	
+							li#album4.album
+								a(href='/albums/landscapes') landscapes
+							li#album5.album
+								a(href='/albums/other') other stuff - travel and more
 							li
-								a(href='/prod/forsale') for sale
-
+								a(href='/forsale') for sale
 							li
-								a(href='/prod/frames') do-it-yourself framing
-
+								a(href='/frames') do-it-yourself - framing for beginners
 							li
-								a(href='/prod/contact') contact
+								a(href='/contact') contact
 
 				block sidebar
 					.col-sm-3.sidebar.full-view
 						.item
 							#home 
-								a(href="/prod/") home
+								a(href="/") home
 						
 						.item
 							#albums 
 								a albums
 
 							#albumnames
+								// #album1.album
+								//	a(href='/albums/critters') critters
+								// #album2.album
+								//	a(href='/albums/landscapes') landscapes
+								// #album3.album
+								//	a(href='albums/more') more
+
+
 								#album1.album
-									a(href='/prod/albums/critters') critters
+									a(href='/albums/birds') birds
 								#album2.album
-									a(href='/prod/albums/landscapes') landscapes
+									a(href='/albums/critters') critters
 								#album3.album
-									a(href='/prod/albums/more') more
+									a(href='/albums/bigger_than_critters') bigger than critters	
+								#album4.album
+									a(href='/albums/landscapes') landscapes
+								#album5.album
+									a(href='/albums/other') other stuff - travel and more
 						.item
 							#forsale
-								a(href='/prod/forsale') for sale / gift
+								a(href='/forsale') for sale / gift
 						.item
 							#framing
-								a(href='/prod/frames') do-it-yourself framing
+								a(href='/frames') do-it-yourself - framing for beginners
 						.item
 							#contact
-								a(href='/prod/contact') contact
+								a(href='/contact') contact
 
 				.content
 					block content

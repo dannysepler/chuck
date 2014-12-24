@@ -18,15 +18,33 @@ exports.home = function() {
 
 
 // ALBUM VIEWS
+exports.albums_birds = function() {
+    return function(req, res) {
+        res.render('prod/albums/birds')
+    };
+};
+
 exports.albums_critters = function() {
     return function(req, res) {
 		res.render('prod/albums/critters')
     };
 };
 
+exports.albums_bigger_than_critters = function() {
+    return function(req, res) {
+        res.render('prod/albums/biggerthancritters')
+    };
+};
+
 exports.albums_landscapes = function() {
     return function(req, res) {
 		res.render('prod/albums/landscapes')
+    };
+};
+
+exports.albums_other_stuff = function() {
+    return function(req, res) {
+        res.render('prod/albums/otherstuff')
     };
 };
 

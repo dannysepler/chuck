@@ -78,6 +78,7 @@ a:hover {
 	#banner {max-width: 100%;}
 	#banner {text-align: center;}
 	#albumnames {display:block;}
+	.content{margin-top: 100px;}
 }
 
 @media (min-width: 768px) {
@@ -86,6 +87,7 @@ a:hover {
 	#banner {max-width: 50%;}
 	#banner {text-align: left;}
 	#albumnames {display:none;}
+	.content{margin-top:0px;}
 }
 
 @media screen and (min-device-width: 320px) and (max-device-width: 900px) {
