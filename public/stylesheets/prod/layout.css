@@ -17,13 +17,19 @@
 a {
 	color: #006600;
 	font-size: 20px;
+	font-weight: bold;
 }
 
 a:hover {
 	color: #B20059;
+	font-weight: bold;
 	
 	/* same color */
 	/* color: #006600; */
+}
+
+.bold {
+	font-weight: bold;
 }
 
 /* mobile menu screen */
@@ -69,6 +75,22 @@ a:hover {
 #albums a {
 	margin-top: 1em;
 	cursor: pointer;
+}
+
+.ubuntu_font {
+	font-family: 'Ubutu Condensed', sans-serif;
+}
+
+.nunito_font {
+	font-family: 'Nunito', sans-serif;
+}
+
+.fell_font {
+	font-family: 'IM Fell Great Primer', serif;
+}
+
+.big_text {
+	font-size: 45px;
 }
 
 @media (max-width: 769px) {
