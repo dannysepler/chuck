@@ -15,5 +15,11 @@ $(document).ready(function() {
 
 	$('.navbar-toggle').click(function() {
 		$('.navbar-collapse').slideToggle('fast');
+		$('.content').css('margin-top', function() {
+			var margintop = $('.content').css('margin-top').replace("px","");
+			var newmargintop = 100 - parseInt(margintop);
+			// alert('new margin top is '+newmargintop);
+			return "" + newmargintop + "px";
+		})
 	});
 });

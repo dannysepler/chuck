@@ -100,7 +100,7 @@ a:hover {
 	#banner {max-width: 100%;}
 	#banner {text-align: center;}
 	#albumnames {display:block;}
-	.content{margin-top: 100px;}
+	/*.content{margin-top: 100px;}*/
 }
 
 @media (min-width: 768px) {
