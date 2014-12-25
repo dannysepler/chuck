@@ -110,6 +110,7 @@ a:hover {
 	#banner {text-align: left;}
 	#albumnames {display:none;}
 	.content{margin-top:0px;}
+	.menuclick {display:none;}
 }
 
 @media screen and (min-device-width: 320px) and (max-device-width: 900px) {
@@ -119,4 +120,5 @@ a:hover {
 	#banner {max-width: 100%;}
 	#banner {text-align: center;}
 	#albumnames {display:block;}
+	.menuclick {display:block;}
 }
